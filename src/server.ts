@@ -1,13 +1,22 @@
 import http from "http";
 import express from "express";
 import bodyParser from "body-parser";
+import mongoose from "mongoose";
 
 import logging from "./config/logging";
 import config from "./config/config";
 
+import boardRoutes from "./server/board/board-route";
+
+
 const NAMESPACE = "Server";
 
 const router = express();
+
+/** Mongo DB connection */
+mongoose.connect(config.mongo.url, config.mongo.options)
+        .then(()=> logging.info(NAMESPACE, "MongoDB Connected... "))
+        .catch(err =>  logging.error(NAMESPACE,err));
 
 /* Logging the request */
 
@@ -36,6 +45,10 @@ router.use(function(req, res, next) {
         res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
         next();
 });
+
+/* Routes */
+
+router.use('/boards', boardRoutes);
 
 /* Error Handling */
 router.use((req, res, next) => {
