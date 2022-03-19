@@ -13,9 +13,8 @@ const getAllBoards = (req: Request, res: Response, next: NextFunction) => {
     Board.find()
         .exec()
         .then(results => {
-            return res.status(200).json({
-                boards: results
-            })
+            logging.info(NAMESPACE, " boardlist response :", results);
+            return res.status(200).json(results);
         })
         .catch(error => {
             return res.status(500).json({
