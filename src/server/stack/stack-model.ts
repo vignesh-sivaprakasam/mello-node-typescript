@@ -9,4 +9,4 @@ const StackSchema: Schema = new Schema({
     timestamps: true
 });
 
-export default mongoose.model<IStack>('Stack', StackSchema);
+export = mongoose.model<IStack>('Stack', StackSchema);

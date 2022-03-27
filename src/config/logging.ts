@@ -32,7 +32,7 @@ const debug = (namespace: string, message: string, object?: any ) => {
     }
 }
 
-export default {
+export = {
     info,
     warn,
     error,

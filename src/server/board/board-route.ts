@@ -34,4 +34,4 @@ router.put("/:id", updateBoard);
 
 router.delete("/:id", deleteBoard);
 
-export default router;
+export = router;

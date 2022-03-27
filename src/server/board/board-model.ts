@@ -8,4 +8,4 @@ const BoardSchema: Schema = new Schema({
     timestamps: true
 });
 
-export default mongoose.model<IBoard>('Board', BoardSchema);
+export = mongoose.model<IBoard>('Board', BoardSchema);

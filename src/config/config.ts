@@ -36,4 +36,4 @@ const config = {
     server: SERVER
 }
 
-export default config;
+export = config;

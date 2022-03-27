@@ -34,4 +34,4 @@ router.put("/:boardID/stacks/:stackID", updateStack);
 //@access       public
 
 router.delete("/:boardID/stacks/:stackID", deleteStack);
-export default router;
+export = router;
