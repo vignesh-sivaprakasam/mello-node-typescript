@@ -8,6 +8,8 @@ import config from "./config/config";
 
 import boardRoutes from "./server/board/board-route";
 
+import stackRoutes from "./server/stack/stack-route";
+
 
 const NAMESPACE = "Server";
 
@@ -49,6 +51,8 @@ router.use(function(req, res, next) {
 /* Routes */
 
 router.use('/boards', boardRoutes);
+
+router.use('/boards', stackRoutes);
 
 /* Error Handling */
 router.use((req, res, next) => {
