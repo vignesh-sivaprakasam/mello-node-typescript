@@ -36,11 +36,10 @@ router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
 
 /* Rules for API */
-var allowedOrigins = ['http://localhost:8080', "http://localhost:3001", 'http://localhost:3000', "https://mello-typescript.herokuapp.com/", "https://mello-typescript-node.herokuapp.com",'http://mello-server.herokuapp.com','https://mello-server.herokuapp.com','http://mello-client.herokuapp.com', 'https://mello-client.herokuapp.com', 'http://mello-react.herokuapp.com','https://mello-react.herokuapp.com'];
+var allowedOrigins = ['http://localhost:8080', "http://localhost:3001", 'http://localhost:3000', "https://mello-typescript.herokuapp.com", "https://mello-typescript-node.herokuapp.com",'http://mello-server.herokuapp.com','https://mello-server.herokuapp.com','http://mello-client.herokuapp.com', 'https://mello-client.herokuapp.com', 'http://mello-react.herokuapp.com','https://mello-react.herokuapp.com'];
 router.use(function(req, res, next) {
 
         const origin = req.headers.origin || '';
-        console.log("allowed regions : ", allowedOrigins,  " check allowed : ",allowedOrigins.indexOf(origin));
         if(allowedOrigins.indexOf(origin) > -1){
                 res.setHeader('Access-Control-Allow-Origin', origin);
         }
