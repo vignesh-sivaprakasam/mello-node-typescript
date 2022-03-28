@@ -40,6 +40,7 @@ var allowedOrigins = ['http://localhost:8080', "http://localhost:3001", 'http://
 router.use(function(req, res, next) {
 
         const origin = req.headers.origin || '';
+        console.log("allowed regions : ", allowedOrigins);
         if(allowedOrigins.indexOf(origin) > -1){
                 res.setHeader('Access-Control-Allow-Origin', origin);
         }
