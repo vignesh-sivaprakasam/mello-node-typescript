@@ -43,17 +43,17 @@ const createBoard = (req: Request, res: Response, next: NextFunction) => {
 const getBoard = (req: Request, res: Response, next: NextFunction) => {
     console.log("get Board");
     Board.findById(req.params.id)
-                .populate({
-                    path: 'stacks',
-                    model: 'Stack'
-                })
                 // .populate({
-                //         path : 'stacks',
-                //         populate : {
-                //                 path  : 'cards',
-                //                 model : 'card'
-                //         }
+                //     path: 'stacks',
+                //     model: 'Stack'
                 // })
+                .populate({
+                        path : 'stacks',
+                        populate : {
+                                path  : 'cards',
+                                model : 'Card'
+                        }
+                })
                 .then(board => 
                         res.json(board)
                 )

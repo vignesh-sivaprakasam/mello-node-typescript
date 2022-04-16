@@ -10,6 +10,8 @@ import boardRoutes from "./server/board/board-route";
 
 import stackRoutes from "./server/stack/stack-route";
 
+import cardRoutes from "./server/card/card-route";
+
 
 const NAMESPACE = "Server";
 
@@ -53,6 +55,8 @@ router.use(function(req, res, next) {
 router.use('/boards', boardRoutes);
 
 router.use('/boards', stackRoutes);
+
+router.use('/boards', cardRoutes);
 
 /* Error Handling */
 router.use((req, res, next) => {

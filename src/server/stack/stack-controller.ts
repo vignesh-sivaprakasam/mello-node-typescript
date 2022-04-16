@@ -49,6 +49,10 @@ export const getStack = (req: Request, res: Response, next: NextFunction) => {
     const { stackID } = req.params;
 
     Stack.findById(stackID)
+        .populate({
+            path: 'cards',
+            model: 'Card'
+        })
         .then(stack => res.status(200).json(stack))
         .catch(error => 
             res.status(500)
